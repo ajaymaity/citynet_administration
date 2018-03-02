@@ -11,5 +11,19 @@ sudo apt-get update
 sudo apt-get install docker-ce
 
 #from host:
+# put deploy key
+./scopy.sh .ssh .tmux.conf
+
+#connect and clone git
+./connect
+git clone git@gitlab.com:aseproject11/citynet.git
+
+# run the server in dev mode
+tmux
+sudo citynet/docker/interactive_docker.sh 
+
+
+# todo run the docker container automatically, with a name and with auto restart
+
 
 
