@@ -1,0 +1,15 @@
+#fix locale
+sudo locale-gen --purge en_IE.UTF-8
+echo -e 'LANG=en_IE.UTF-8\nLANGUAGE=en_IE.UTF-8\nLC_ALL=en_IE.UTF-8\n' | sudo tee /etc/default/locale
+
+# install docker from https://docs.docker.com/install/linux/docker-ce/ubuntu/
+sudo apt-get update -y
+sudo apt-get install  -y   apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce
+
+#from host:
+
+
