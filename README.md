@@ -1,6 +1,14 @@
 Citynet production configuration
 ==
 
+Clonning the repository
+--
+You need to clone this repository in the same parent folder as citynet.
+You also need to name it `config_private_citynet`:
+```
+git clone git@gitlab.com:aseproject11/config_private.git config_private_citynet
+```
+
 Installation
 --
 Follow guide in
@@ -14,27 +22,27 @@ Update the production server
 
 Manual instructions:
 * Connect to the server
-```bash
+```
 ./connect.sh
 ```
 * Stop the current server
-```bash
+```
 tmux a
 CTRL+C  # to stop the server
 CTRL+D # to quit the docker
 ```
 *Update git
-```bash
+```
 git fetch --all
 git reset --hard origin/master
 ```
 *restart the server ***The ugly way to be fixed***
-```bash
+```
 sudo docker/prod_run_docker.sh
 prod/start_prod.sh
 ```
 *detach the tmux and disconnect from the server
-```bash
+```
 CTRL+B, D
 CTRL+D
 ```
