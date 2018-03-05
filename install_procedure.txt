@@ -43,6 +43,8 @@ certbot --nginx -d citynet.online -d www.citynet.online
 #edit the nginx config file /etc/nginx/sites-enabled/default
 # to redirect root to www. following the example nginx_dafault in the same folder as this file.
 
+#Run the server:
+./start_prod.sh
 
-
-
+# detach from the tmux
+# CTRL+B, D
