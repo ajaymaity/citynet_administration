@@ -9,11 +9,11 @@
 # (c) Cory <sgryco@gmail.com>
 
 rootpath=$(dirname $0)
-. $rootpath/machine_info
+. ${rootpath}/machine_info
 
 if [ $# -gt "0" ]; then
   echo "Copying files $@"
-  rsync -Pazuv -e "ssh -i $priv_key -l $user -p $port" $@ $IP:
+  rsync -Pazuv -e "ssh -i $priv_key -l $user -p $port" $@ ${IP}:
 else
   echo "specify files/folders to copy"
 fi

@@ -11,5 +11,5 @@
 . machine_info
 
 
-ssh -v -p $port -i $priv_key $user@$IP
+ssh -v -p ${port} -i ${priv_key} ${user}@${IP}
 #-L 8000:localhost:8000
