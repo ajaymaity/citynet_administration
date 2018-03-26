@@ -1,4 +1,4 @@
-IP=52.214.81.186
+IP=34.244.229.162
 user=ubuntu
 port=22
 path=$(dirname $0)
