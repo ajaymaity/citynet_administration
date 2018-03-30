@@ -13,6 +13,7 @@ rootpath=$(dirname $0)
 
 if [ $# -gt "0" ]; then
   echo "Copying files $@"
+  chmod 600 ${priv_key}
   rsync -Pazuv -e "ssh -i $priv_key -l $user -p $port" $@ ${IP}:
 else
   echo "specify files/folders to copy"

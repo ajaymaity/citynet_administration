@@ -10,6 +10,7 @@
 
 . machine_info
 
+chmod 600 ${priv_key}
 ssh -p ${port} -i ${priv_key} ${user}@${IP} "
   set -e
   if [ ! -d citynet/.git ]; then

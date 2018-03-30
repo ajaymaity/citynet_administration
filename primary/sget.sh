@@ -13,6 +13,7 @@ rootpath=$(dirname $0)
 
 if [ $# -gt "0" ]; then
   echo "Copying files $@"
+  chmod 600 ${priv_key}
   scp -P ${port} -i ${priv_key} -r -C ${user}@${IP}:$@ .
 else
   echo "specify files/folders to copy"

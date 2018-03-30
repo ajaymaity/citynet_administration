@@ -10,6 +10,6 @@
 
 . machine_info
 
-
+chmod 600 ${priv_key}
 ssh -v -p ${port} -i ${priv_key} ${user}@${IP}
 #-L 8000:localhost:8000

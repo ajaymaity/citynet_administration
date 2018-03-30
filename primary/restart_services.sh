@@ -10,6 +10,7 @@
 
 . machine_info
 
+chmod 600 ${priv_key}
 for service in $services; do
   echo "restarting $service";
   ssh -p ${port} -i ${priv_key} ${user}@${IP} "sudo docker rm -f $service"

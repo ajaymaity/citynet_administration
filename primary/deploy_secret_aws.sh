@@ -11,6 +11,7 @@
 rootpath=$(dirname $0)
 . ${rootpath}/machine_info
 
+chmod 600 ${priv_key}
 secret=${rootpath}/../bash_import_secret_aws
 echo "Copying file $secret"
 rsync -Pazuv -e "ssh -i $priv_key -l $user -p $port" $secret ${IP}:config_private_citynet/
