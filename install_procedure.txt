@@ -1,39 +1,15 @@
-#fix locale
-sudo locale-gen --purge en_IE.UTF-8
-echo -e 'LANG=en_IE.UTF-8\nLANGUAGE=en_IE.UTF-8\nLC_ALL=en_IE.UTF-8\n' | sudo tee /etc/default/locale
-
-# install docker from https://docs.docker.com/install/linux/docker-ce/ubuntu/
-sudo apt-get update -y
-sudo apt-get install  -y htop apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get update
-sudo apt-get install -y docker-ce
-
-#from host:
-# put deploy key
-./scopy.sh .ssh .tmux.conf
-./scopy.sh bash_import_secret
+# db creation
+# Go to any instance and run
+sudo citynet/prod/prod_run_docker.sh 
+# inside the instance, run
+/app/prod/create_prod_db_aws.sh
+# or
+/app/prod/create_prod_db_aws.sh <dump to import>
 
 
-#connect and clone git
-./connect
-chmod 600 .ssh/id_rsa
-git clone git@gitlab.com:aseproject11/citynet.git
-mkdir -p config_private_citynet
-mv bash_import_secret config_private_citynet
-
-# todo run the docker container automatically, with a name and with auto restart
-
-# run the server in dev mode
-tmux # or tumx a
-
-sudo citynet/prod/prod_run_docker.sh
-
-# setup nginx.
+# steps to setup nginx certificate for certified HTTPS
+ 
 cd prod
-# if needed, create db: 
-#./create_prod_db.sh
 ./setup_nginx.sh
 
 # Let's encrypt signed SSL certificate 
@@ -42,11 +18,3 @@ cd prod
 certbot --nginx -d citynet.online -d www.citynet.online
 # enter email, select 2 redirect all.
 
-#edit the nginx config file /etc/nginx/sites-enabled/default
-# to redirect root to www. following the example nginx_dafault in the same folder as this file.
-
-#Run the server:
-./start_prod.sh
-
-# detach from the tmux
-# CTRL+B, D

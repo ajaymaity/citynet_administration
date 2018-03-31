@@ -3,12 +3,9 @@
 # Base Script File (conf_rosetta.sh)
 # Created: ven. 19 janv. 2018 19:39:30 GMT
 # Version: 1.0
-#
-# This Bash script was developped by Cory.
-#
-# (c) Cory <sgryco@gmail.com>
 
-. machine_info
+set -e
+. instances_info/get_info.sh
 
 chmod 600 ${priv_key}
 ssh -p ${port} -i ${priv_key} ${user}@${IP} "

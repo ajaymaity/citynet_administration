@@ -1,1 +1,0 @@
-../primary/scopy.sh

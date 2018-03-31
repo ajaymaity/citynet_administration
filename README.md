@@ -11,8 +11,6 @@ git clone git@gitlab.com:aseproject11/config_private.git config_private_citynet
 
 Installation
 --
-Follow guide in
-` install_procedure.txt `
 
 
 Update the production server

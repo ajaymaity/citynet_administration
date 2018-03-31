@@ -1,0 +1,3 @@
+user=ubuntu
+port=22
+priv_key=instances_info/citynet_prod.pem

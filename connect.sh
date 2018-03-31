@@ -4,12 +4,7 @@
 # Created: ven. 19 janv. 2018 19:39:30 GMT
 # Version: 1.0
 #
-# This Bash script was developped by Cory.
-#
-# (c) Cory <sgryco@gmail.com>
+set -e
+. instances_info/get_info.sh
 
-. machine_info
-
-chmod 600 ${priv_key}
 ssh -v -p ${port} -i ${priv_key} ${user}@${IP}
-#-L 8000:localhost:8000

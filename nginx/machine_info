@@ -1,6 +1,0 @@
-IP=52.18.70.219
-user=ubuntu
-port=22
-path=$(dirname $0)
-priv_key=$path/../citynet_prod.pem
-services="nginx beat"

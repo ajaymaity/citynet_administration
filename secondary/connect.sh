@@ -1,1 +1,0 @@
-../primary/connect.sh
