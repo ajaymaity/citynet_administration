@@ -1,3 +1,4 @@
 user=ubuntu
 port=22
 priv_key=instances_info/citynet_prod.pem
+private_git="git@gitlab.com:aseproject11/config_private_citynet.git"

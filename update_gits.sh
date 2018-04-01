@@ -20,7 +20,7 @@ ssh -p ${port} -i ${priv_key} ${user}@${IP} "
 
   if [ ! -d config_private_citynet/.git ]; then
     sudo rm -rf config_private_citynet
-    git clone git@gitlab.com:aseproject11/config_private_citynet.git
+    git clone $private_git config_private_citynet
   else
     git -C config_private_citynet fetch --all
     git -C config_private_citynet reset --hard origin/master
